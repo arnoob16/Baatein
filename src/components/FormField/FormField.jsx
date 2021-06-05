@@ -1,6 +1,6 @@
 import { ErrorMessage, Field } from 'formik';
 
-export const FormField = ({ name, label, type = 'text' }) => (
+export const FormField = ({ name, label, type }) => (
     <label>
         {label}
         <Field type={type} name={name} />

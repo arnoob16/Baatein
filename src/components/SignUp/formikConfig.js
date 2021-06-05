@@ -7,6 +7,10 @@ export const defaultValues = {
 };
 
 export const validationSchema = Yup.object().shape({
+    userName: Yup.string()
+        .required('Required')
+        .matches(/^\S*$/, 'No Spaces')
+        .min(3, 'Must contain at-least 3 characters'),
     email: Yup.string().email('Invalid Email Address').required('Required'),
     password: Yup.string()
         .required('Required')
@@ -14,8 +18,4 @@ export const validationSchema = Yup.object().shape({
     verifyPassword: Yup.string()
         .required('Required')
         .oneOf([Yup.ref('password'), null], "Password don't match"),
-    userName: Yup.string()
-        .required('Required')
-        .matches(/^S*$/, 'No Spaces')
-        .min(3, 'Must contain at-least 3 characters'),
 });
